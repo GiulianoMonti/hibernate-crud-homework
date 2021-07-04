@@ -4,14 +4,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.luv2code.hibernate.demo.entity.Student;
+import com.luv2code.hibernate.demo.entity.Employee;
 
 public class DeleteStudentDemo {
 
 	public static void main(String[] args) {
 
 		// create session factory
-		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Student.class)
+		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Employee.class)
 				.buildSessionFactory();
 		// create session
 
@@ -28,7 +28,7 @@ public class DeleteStudentDemo {
 
 			System.out.println("\nGetting student with id: " + studentId);
 
-			Student myStudent = session.get(Student.class, studentId);
+			Employee myStudent = session.get(Employee.class, studentId);
 
 			// delete the student 
 			
