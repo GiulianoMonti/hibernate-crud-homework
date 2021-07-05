@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.luv2code.hibernate.demo.entity.Employee;
 
-public class QueryStudentDemo {
+public class QueryEmployeeDemo {
 
 	public static void main(String[] args) {
 
