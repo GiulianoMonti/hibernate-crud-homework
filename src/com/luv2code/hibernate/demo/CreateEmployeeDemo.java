@@ -21,7 +21,7 @@ public class CreateEmployeeDemo {
 			// use the session object to save Java object
 			// create a student object
 			System.out.println("Creating a new student object...");
-			Employee temEmployee = new Employee("Giuliano", "Monti", "TAKESHI");
+			Employee temEmployee = new Employee("DANIEL", "MONTI", "TAKESHI");
 			
 
 			

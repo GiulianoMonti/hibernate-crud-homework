@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.luv2code.hibernate.demo.entity.Employee;
 
-public class DeleteStudentDemo {
+public class ReadEmployeeDemo {
 
 	public static void main(String[] args) {
 
@@ -18,7 +18,29 @@ public class DeleteStudentDemo {
 		Session session = factory.getCurrentSession();
 
 		try {
-			int studentId = 1;
+			// use the session object to save Java object
+			// create a student object
+			System.out.println("Creating a new employee object...");
+			Employee tempEmployee = new Employee("takeshi", "kovacs", "kovacs@gmail.com");
+
+			// start a transaction
+
+			session.beginTransaction();
+
+			// save the student object
+			System.out.println(tempEmployee);
+			System.out.println(tempEmployee);
+
+			session.save(tempEmployee);
+
+			// commit transaction
+
+			session.getTransaction().commit();
+
+			// MY NEW CODE
+
+			// find out the student's id: primary key
+			System.out.println("Saved employee. Generated id: " + tempEmployee.getId());
 
 			// now get a new session and start transaction
 
@@ -26,19 +48,11 @@ public class DeleteStudentDemo {
 			session.beginTransaction();
 			// retrieve student based on the id: primary key
 
-			System.out.println("\nGetting student with id: " + studentId);
+			System.out.println("\nGetting employee with id: " + tempEmployee.getId());
 
-			Employee myStudent = session.get(Employee.class, studentId);
+			Employee myStudent = session.get(Employee.class, tempEmployee.getId());
 
-			// delete the student 
-			
-//			System.out.println("Deleting student: " + myStudent);
-//			session.delete(myStudent);
-			
-			// delete student id=2
-			System.out.println("Deleting student id=2");
-			session.createQuery("delete from Student where id=2").executeUpdate();
-		
+			System.out.println("Get complete: " + myStudent);
 			// commit the transaction
 			session.getTransaction().commit();
 
@@ -51,5 +65,6 @@ public class DeleteStudentDemo {
 	}
 
 }
+
 
 // session.createQuery("from Student").getResultList()
